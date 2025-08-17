@@ -7,12 +7,20 @@ using System.Threading.Tasks;
 
 namespace Entities.Concretes
 {
-    public class Configuration : BaseEntity<int>
+    public class Configuration : BaseEntity
     {
         public string Name { get; set; }
-        public string Type { get; set; }
+        public ConfigValueType Type { get; set; }
         public string Value { get; set; }
         public bool IsActive { get; set; }
         public string ApplicationName { get; set; }
+    }
+    public enum ConfigValueType
+    {
+        String = 1,
+        Int = 2,
+        Bool = 3,
+        Double = 4,
+        DateTime = 5
     }
 }

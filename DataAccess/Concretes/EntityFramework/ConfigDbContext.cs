@@ -34,17 +34,52 @@ namespace DataAccess.Concretes.EntityFramework
             modelBuilder.Entity<Configuration>().Property(c => c.IsActive).IsRequired();
             modelBuilder.Entity<Configuration>().Property(c => c.ApplicationName).IsRequired().HasMaxLength(100);
 
-            Configuration seedData = new Configuration
+
+            Configuration[] seedDatas =
             {
-                Id = 1,
+                new Configuration
+                {
+                     Id = 1,
                 Name = "DefaultConfig",
-                Type = "string",
+                Type = ConfigValueType.String,
                 Value = "DefaultValue",
                 IsActive = true,
                 ApplicationName = "MyApp"
+                }
+                ,
+                new Configuration
+                {
+                     Id =2 ,
+                Name = "SiteName",
+                Type = ConfigValueType.String,
+                Value = "soty.io",
+                IsActive = true,
+                ApplicationName = "SERVICE-B"
+                },
+                new Configuration
+                {
+                     Id =3 ,
+                Name = "IsBasketEnabled",
+                Type = ConfigValueType.Bool,
+                Value = true.ToString(),
+                IsActive = true,
+                ApplicationName = "SERVICE-A"
+                }
+                ,
+                new Configuration
+                {
+                     Id =4 ,
+                Name = "MaxItemCount",
+                Type = ConfigValueType.Int,
+                Value = 50.ToString(),
+                IsActive = true,
+                ApplicationName = "SERVICE-A"
+                }
+
+
             };
 
-            modelBuilder.Entity<Configuration>().HasData(seedData);
+            modelBuilder.Entity<Configuration>().HasData(seedDatas);
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities;
 
-public class BaseEntity<TId>
+public class BaseEntity
 {
-    public TId Id { get; set; }
+    public int Id { get; set; }
     public DateTime CreatedDate { get; set; }
     public DateTime? UpdatedDate { get; set; }
     public DateTime? DeletedDate { get; set; }
